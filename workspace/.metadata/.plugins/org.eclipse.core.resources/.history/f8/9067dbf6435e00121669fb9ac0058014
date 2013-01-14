@@ -1,0 +1,34 @@
+
+public class Stereo {
+
+	int volume;
+	String location;
+	
+	public Stereo(String location){
+		this.location = location;
+	}
+	
+	public void on(){
+		
+	}
+	
+	public void off(){
+		
+	}
+	
+	public void setCD(){
+		
+	}
+	
+	public void setDVD(){
+		
+	}
+	
+	public void setRadio(){
+		
+	}
+	
+	public void setVolume(int volume){
+		this.volume = volume;
+	}
+}

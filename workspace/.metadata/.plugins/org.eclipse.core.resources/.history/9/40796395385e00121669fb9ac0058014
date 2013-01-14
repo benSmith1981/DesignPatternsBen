@@ -1,0 +1,30 @@
+
+import java.util.*;
+
+//
+// This is the invoker
+//
+public class SimpleRemoteControl {
+	Command slot;
+ 
+	//Command[] lastCommands = Command[10];
+	
+	public SimpleRemoteControl() {}
+ 
+	public void setCommand(Command command) {
+		slot = command;
+	}
+ 
+	public void buttonWasPressed() {
+		slot.execute();
+		//add this to array in last position (stack.push)
+	}
+	
+	public void undoButton(){
+		//stack.pop gets you a Command 
+		// on the popped Command call undo
+	}
+	
+	
+	
+}
