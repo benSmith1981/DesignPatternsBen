@@ -38,11 +38,11 @@ public class RemoteLoader {
 		remoteControl.setCommand(2, ceilingFanOn, ceilingFanOff);
 		remoteControl.setCommand(3, stereoOnWithCD, stereoOff);
 		
-		remoteControl.onButtonWasPushed(1);
-		remoteControl.undoButtonWasPushed();
-		remoteControl.onButtonWasPushed(2);
-		remoteControl.onButtonWasPushed(3);
-		remoteControl.undoButtonWasPushed();
-		remoteControl.undoButtonWasPushed();
+		remoteControl.onButtonWasPushed(1); //light on
+		remoteControl.undoButtonWasPushed(); //undo (light off)
+		remoteControl.onButtonWasPushed(2); // fan on
+		remoteControl.onButtonWasPushed(3); // stereo on
+		remoteControl.undoButtonWasPushed(); // undo (stereo off)
+		remoteControl.undoButtonWasPushed(); // undo (fan off)
 		}
 }
