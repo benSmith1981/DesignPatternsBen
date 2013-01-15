@@ -5,7 +5,7 @@ import java.util.*;
 // This is the invoker
 //
 public class RemoteControlWithUndo {
-	Command undoCommand;
+	private Stack<Command> commandHistory = new Stack<Command>();
 	Command[] onCommands;
 	Command[] offCommands;
  	
@@ -18,7 +18,6 @@ public class RemoteControlWithUndo {
 			onCommands[i] = noCommand;
 			offCommands[i] = noCommand;
 		}
-		undoCommand = noCommand;
 	}
  
 	public void setCommand(int slot, Command onCommand, Command offCommand) {
@@ -28,16 +27,17 @@ public class RemoteControlWithUndo {
  
 	public void onButtonWasPushed(int slot) {
 		onCommands[slot].execute();
-		undoCommand = onCommands[slot];
+		commandHistory.push(onCommands[slot]);
 	}
 	
 	public void offButtonWasPushed(int slot) {
 		offCommands[slot].execute();
-		undoCommand = offCommands[slot];
+		//undoCommand = offCommands[slot];
+		commandHistory.push(offCommands[slot]);
 	}
 	
 	public void undoButtonWasPushed(){
-		undoCommand.undo();
+		commandHistory.pop().undo();
 	}
 	
 	public String toString(){
@@ -47,13 +47,5 @@ public class RemoteControlWithUndo {
 			stringBuff.append("[slot " + i + "] " + onCommands[i].getClass().getName() + "  " + offCommands[i].getClass().getName() + "\n");
 		}
 		return stringBuff.toString();
-	}
-	
-	public void undoButton(){
-		//stack.pop gets you a Command 
-		// on the popped Command call undo
-	}
-	
-	
-	
+	}	
 }
