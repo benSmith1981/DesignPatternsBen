@@ -37,7 +37,12 @@ public class RemoteControlWithUndo {
 	}
 	
 	public void undoButtonWasPushed(){
-		commandHistory.pop().undo();
+		try{
+			commandHistory.pop().undo();
+		}
+		catch(EmptyStackException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public String toString(){
