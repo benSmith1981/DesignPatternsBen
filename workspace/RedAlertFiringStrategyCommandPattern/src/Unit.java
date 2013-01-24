@@ -1,0 +1,19 @@
+
+public abstract class Unit {
+	private MoveStrategy movement;
+	
+	private FireAtTargetStrategy fire;
+
+	public Unit(MoveStrategy mv, FireAtTargetStrategy f){
+		movement = mv;	
+		fire = f;
+	}
+	
+	public void doMove(String location){
+		movement.doMove(location);
+	}
+	
+	public void fireAtTarget(Unit attacker, Unit target){
+		fire.fireAtTarget(attacker,target);
+	}
+}
