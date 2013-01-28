@@ -2,7 +2,7 @@
 public class Soldier extends Unit {
 	
 	public Soldier(){
-		super(new Walk(), new FireRifle());
+		super(new Walk(), new FireRifle(), null);
 	}
 
 }
