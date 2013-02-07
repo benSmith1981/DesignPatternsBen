@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+
+public class UnitManager {
+	private ArrayList<UnitCommand> commandList;
+	private LinkedList<Unit> moveGroup;
+	public UnitManager()
+	{
+		GroundUnitFactory groundUnitFactory = new GroundUnitFactory();
+		AircraftFactory aircraftFactory = new AircraftFactory();
+
+		Unit s = groundUnitFactory.createUnit("Soldier");
+		Unit t = groundUnitFactory.createUnit("Tank");
+		Aircraft aircraftBomber = aircraftFactory.createUnit("Bomber");
+		Aircraft aircraftMissile = aircraftFactory.createUnit("MissileShooter");
+	}
+	
+	/**
+	 * Creates a move group, and adds command list
+	 */
+	public static void createMoveGroup()
+	{
+		UnitGroupMoveCommand ugmc = new UnitGroupMoveCommand(moveGroup, "Home");
+		addCommandToArrayList(ugmc);
+	}
+	
+	/**
+	 * Adds units to the move group linked list
+	 * @param unit
+	 */
+	public static void addUnitToMoveGroup(Unit unit)
+	{
+		moveGroup.add(unit);
+	}
+	
+	/**
+	 * Adds command to our command array list
+	 * @param command
+	 */
+	public static void addCommandToArrayList(UnitCommand command)
+	{
+		commandList.add(command);
+	}
+}

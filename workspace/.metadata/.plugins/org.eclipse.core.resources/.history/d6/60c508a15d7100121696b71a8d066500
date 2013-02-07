@@ -1,0 +1,8 @@
+public class UnitMovementRunner {
+
+	public static void main(String[] args){
+	
+		UnitManager unitCreation = new UnitManager(); 
+
+	}
+}

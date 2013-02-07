@@ -1,0 +1,18 @@
+public class UnitFactory {	
+
+	public AircraftBomber createAircraftBomber(){
+		return new AircraftBomber();
+	}
+	
+	public AircraftMissileShooter createAircraftMissileShooter(){
+		return new AircraftMissileShooter();
+	}
+	
+	public Tank createTank(){
+		return new Tank();
+	}
+	
+	public Tank createSoldier(){
+		return new Soldier();
+	}
+}

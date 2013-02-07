@@ -1,4 +1,4 @@
-public class Aircraft extends Unit{
+public abstract class Aircraft extends Unit{
 	private TakePictureOfTargetStrategy takePicture;
 
 	public Aircraft(MoveStrategy mv, FireAtTargetStrategy f, TakePictureOfTargetStrategy tp){

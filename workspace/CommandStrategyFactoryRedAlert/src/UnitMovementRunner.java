@@ -9,14 +9,11 @@ public class UnitMovementRunner {
 		commandList = new ArrayList<UnitCommand>();
 		moveGroup = new LinkedList<Unit>();
 
-		GroundUnitFactory groundUnitFactory = new GroundUnitFactory();
-		AircraftFactory aircraftFactory = new AircraftFactory();
-
-		Unit s = groundUnitFactory.createUnit("Soldier");
-		Unit t = groundUnitFactory.createUnit("Tank");
-		Aircraft aircraftBomber = aircraftFactory.createUnit("Bomber");
-		Aircraft aircraftMissile = aircraftFactory.createUnit("MissileShooter");
-
+		Soldier s = UnitFactory.createSoldier();
+		Tank t = UnitFactory.createTank();
+		AircraftBomber aircraftBomber = UnitFactory.createAircraftBomber();
+		AircraftMissileShooter aircraftMissile = UnitFactory.createAircraftMissileShooter();
+   
 		addUnitToMoveGroup(s);
 		addUnitToMoveGroup(t);
 		addUnitToMoveGroup(aircraftBomber);
