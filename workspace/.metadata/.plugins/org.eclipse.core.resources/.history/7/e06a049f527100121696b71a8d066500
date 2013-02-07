@@ -1,0 +1,6 @@
+public abstract class UnitFactory {
+
+	Unit createUnit(String type);
+
+}
+

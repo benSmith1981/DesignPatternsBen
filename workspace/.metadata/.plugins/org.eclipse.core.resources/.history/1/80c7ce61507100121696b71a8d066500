@@ -1,0 +1,14 @@
+
+public class AircraftFactory {
+	else if(type.equals("Bomber"))
+	{
+		System.out.println("Create Bomber");
+		return new AircraftBomber();
+	}
+	else if(type.equals("MissileShooter"))
+	{
+		System.out.println("Create MissileShooter");
+		return new AircraftBomber();
+	}
+	return null;
+}

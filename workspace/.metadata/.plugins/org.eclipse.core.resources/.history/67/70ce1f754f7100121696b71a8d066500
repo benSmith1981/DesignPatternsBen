@@ -1,0 +1,7 @@
+
+public class AircraftMissileShooter extends UnitAircraft {
+
+	public AircraftMissileShooter(){
+		super(new Fly(), new DropBomb(), new TakePicture());
+	}	
+}
