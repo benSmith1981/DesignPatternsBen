@@ -1,0 +1,7 @@
+
+public class UnitAircraft extends Unit{
+
+	public UnitAircraft(MoveStrategy mv, FireAtTargetStrategy f, TakePictureOfTargetStrategy tp){
+		super(new Fly(), new DropBomb(), new TakePicture());
+	}
+}

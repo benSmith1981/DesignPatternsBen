@@ -1,0 +1,77 @@
+import java.util.LinkedList;
+import java.util.ArrayList; 
+
+public class UnitMovementRunner {
+	static ArrayList<UnitCommand> commandList;
+	static LinkedList<Unit> moveGroup;
+	public static void main(String[] args){
+		
+		commandList = new ArrayList<UnitCommand>();
+		moveGroup = new LinkedList<Unit>();
+
+		GroundUnitFactory groundUnitFactory = new GroundUnitFactory();
+		AircraftFactory aircraftFactory = new AircraftFactory();
+
+		Unit s = groundUnitFactory.createUnit("Soldier");
+		Unit t = groundUnitFactory.createUnit("Tank");
+		Aircraft aircraftBomber = aircraftFactory.createUnit("Bomber");
+		Aircraft aircraftMissile = aircraftFactory.createUnit("MissileShooter");
+
+		addUnitToMoveGroup(s);
+		addUnitToMoveGroup(t);
+		addUnitToMoveGroup(aircraftBomber);
+		addUnitToMoveGroup(aircraftMissile);
+		createMoveGroup();
+		
+		createAttackerFiresAtTarget(s,t);
+		createAttackerFiresAtTarget(t,s);
+		createAttackerFiresAtTarget(aircraftBomber,s);
+		createAttackerFiresAtTarget(aircraftMissile,t);
+	
+		createTakePictureOfTarget(aircraftBomber,s);
+		
+		executeCommandsForYourGo();
+	}
+	
+	public static void createAttackerFiresAtTarget(Unit attacker, Unit target)
+	{
+		UnitFireAtTargetCommand fireCommand = new UnitFireAtTargetCommand(attacker,target);
+		addCommandToArrayList(fireCommand);
+	}
+	
+	public static void takePictureOfTarget(Aircraft pictureTaker, Unit target)
+	{
+		AircraftTakePictureCommand takePictureCommand = new AircraftTakePictureCommand(pictureTaker,target);
+		addCommandToArrayList(takePictureCommand);
+	}
+	
+	/**
+	 * Creates a move group, and adds command to the list of commands to execute
+	 */
+	public static void createMoveGroup()
+	{
+		UnitGroupMoveCommand ugmc = new UnitGroupMoveCommand(moveGroup, "Home");
+		addCommandToArrayList(ugmc);
+	}
+	
+	/**
+	 * Adds units to the move group linked list
+	 * @param unit
+	 */
+	public static void addUnitToMoveGroup(Unit unit)
+	{
+		moveGroup.add(unit);
+	}
+	
+	public static void addCommandToArrayList(UnitCommand command)
+	{
+		commandList.add(command);
+	}
+	
+	public static void executeCommandsForYourGo()
+	{
+		for (int i = 0; i < commandList.size(); i++) {
+			commandList.get(i).executeCommand();
+		}
+	}
+}

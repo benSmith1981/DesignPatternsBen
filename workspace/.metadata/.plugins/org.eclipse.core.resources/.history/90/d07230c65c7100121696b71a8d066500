@@ -1,0 +1,14 @@
+
+public class UnitManager {
+
+	public UnitManager()
+	{
+		GroundUnitFactory groundUnitFactory = new GroundUnitFactory();
+		AircraftFactory aircraftFactory = new AircraftFactory();
+
+		Unit s = groundUnitFactory.createUnit("Soldier");
+		Unit t = groundUnitFactory.createUnit("Tank");
+		Aircraft aircraftBomber = aircraftFactory.createUnit("Bomber");
+		Aircraft aircraftMissile = aircraftFactory.createUnit("MissileShooter");
+	}
+}

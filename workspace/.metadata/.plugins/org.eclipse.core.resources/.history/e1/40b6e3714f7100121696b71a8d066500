@@ -1,0 +1,7 @@
+
+public class AircraftBomber extends UnitAircraft{
+
+	public AircraftBomber(){
+		super(new Fly(), new DropBomb(), new TakePicture());
+	}	
+}

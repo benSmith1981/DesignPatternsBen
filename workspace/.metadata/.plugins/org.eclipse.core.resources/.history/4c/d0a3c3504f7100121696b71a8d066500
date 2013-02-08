@@ -1,0 +1,30 @@
+
+public abstract class Unit {
+	private MoveStrategy movement;
+	private FireAtTargetStrategy fire;
+	private TakePictureOfTargetStrategy takePicture;
+
+	public Unit(MoveStrategy mv, FireAtTargetStrategy f){
+		movement = mv;	
+		fire = f;
+		takePicture = new NoCommand();
+	}
+	
+	public Unit(MoveStrategy mv, FireAtTargetStrategy f, TakePictureOfTargetStrategy tp){
+		takePicture = tp;
+		movement = mv;	
+		fire = f;
+	}
+	
+	public void doMove(String location){
+		movement.doMove(location);
+	}
+	
+	public void fireAtTarget(Unit attacker, Unit target){
+		fire.fireAtTarget(attacker,target);
+	}
+	
+	public void takePictureOfTarget(Unit pictureTaker, Unit target){
+		takePicture.takePictureOfTarget(pictureTaker,target);
+	}
+}

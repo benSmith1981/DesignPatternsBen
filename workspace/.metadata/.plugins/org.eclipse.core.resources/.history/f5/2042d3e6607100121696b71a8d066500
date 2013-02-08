@@ -1,0 +1,27 @@
+public class UnitFactory {	
+
+	public AircraftBomber createAircraftBomber(){
+		return new AircraftBomber();
+	}
+	
+	public AircraftMissileShooter createAircraftMissileShooter(){
+		return new AircraftMissileShooter();
+	}
+	
+	public Tank createTank(){
+		return new AircraftBomber();
+	}
+	public Unit createUnit(String type){
+		if(type.equals("Tank"))
+		{
+			System.out.println("Create Tank");
+			return new Tank();
+		}
+		else if(type.equals("Soldier"))
+		{
+			System.out.println("Create Soldier");
+			return new Soldier();
+		}
+		return null;
+	}
+}

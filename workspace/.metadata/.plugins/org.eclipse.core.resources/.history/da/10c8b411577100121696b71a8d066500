@@ -1,0 +1,55 @@
+import java.util.LinkedList;
+import java.util.ArrayList; 
+
+public class UnitMovementRunner {
+	static ArrayList<UnitCommand> commandList;
+	public static void main(String[] args){
+		
+		commandList = new ArrayList<UnitCommand>();
+
+		GroundUnitFactory groundUnitFactory = new GroundUnitFactory();
+		AircraftFactory aircraftFactory = new AircraftFactory();
+
+		Unit s = groundUnitFactory.createUnit("Soldier");
+		Unit t = groundUnitFactory.createUnit("Tank");
+		Aircraft aircraftBomber = aircraftFactory.createUnit("Bomber");
+		Aircraft aircraftMissile = aircraftFactory.createUnit("MissileShooter");
+
+		LinkedList<Unit> moveGroup = new LinkedList<Unit>();
+		moveGroup.add(s);
+		moveGroup.add(t);
+		moveGroup.add(aircraftBomber);
+		moveGroup.add(aircraftMissile);
+		
+		UnitGroupMoveCommand ugmc = new UnitGroupMoveCommand(moveGroup, "Home");
+		commandList.add(ugmc);
+		
+		attackerFiresAtTarget(s,t);
+		attackerFiresAtTarget(t,s);
+		attackerFiresAtTarget(aircraftBomber,s);
+		attackerFiresAtTarget(aircraftMissile,t);
+		
+		takePictureOfTarget(aircraftBomber,s);
+	}
+	
+	public static void attackerFiresAtTarget(Unit attacker, Unit target)
+	{
+		UnitFireAtTargetCommand fireCommand = new UnitFireAtTargetCommand(attacker,target);
+		commandList.add(fireCommand);
+		fireCommand.executeCommand();
+	}
+	
+	public static void takePictureOfTarget(Aircraft pictureTaker, Unit target)
+	{
+		AircraftTakePictureCommand takePictureCommand = new AircraftTakePictureCommand(pictureTaker,target);
+		takePictureCommand.executeCommand();
+	}
+	
+	public static void executeCommandsForYourGo(ArrayList<UnitCommand> commands)
+	{
+		for (int i = 0; i < commands.size(); i++) {
+			commands.get(i).executeCommand();
+		}
+
+	}
+}

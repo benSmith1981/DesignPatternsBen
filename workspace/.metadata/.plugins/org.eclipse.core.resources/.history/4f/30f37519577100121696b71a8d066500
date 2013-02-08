@@ -1,0 +1,13 @@
+public class AircraftFactory extends UnitFactory{
+	public Aircraft createUnit(String type){
+		if(type.equals("Bomber"))
+		{
+			return new AircraftBomber();
+		}
+		else if(type.equals("MissileShooter"))
+		{
+			return new AircraftBomber();
+		}
+		return null;
+	}
+}
