@@ -3,10 +3,10 @@ public class UnitFactory {
     private AircraftBuilderBomber aircraftBuilderBomber;
     private AircraftBuilderMissile aircraftBuilderMissileShooter;
 
-    
     /**
-     * Sets the local instance of aircraftBomberBuilder
-     * @param aircraftBomberBuilder
+     * Sets the local instance of aircraft builder for type of aircraft using it's specific builder
+     * @param aircraftType
+     * @param aircraftBuilder
      */
     public void setAircraftBuilder(AircraftType aircraftType, AircraftBuilder aircraftBuilder) 
     {
@@ -23,8 +23,9 @@ public class UnitFactory {
     }
     
     /**
-     * Getter for newly created bomber 
-     * @return
+     * Getter for newly created aircraft, must request aircraft type, must cast back to the specific type of aircraft you require
+     * @param aircraftType Request type of aircraft you want
+     * @return An object of type Aircraft (either a missile shooter or a bomber)
      */
     public Aircraft getAircraft(AircraftType aircraftType) 
     {
@@ -39,8 +40,8 @@ public class UnitFactory {
     }
  
     /**
-     * Constructor for our bomber, telling bomber builder to create bomber and return
-     * and build all necessary parts
+     * Constructor for our aircraft, simply pass in the AircraftType you want and it is constructed
+     * @param aircraftType
      */
     public void constructAircraftBuilder(AircraftType aircraftType) {
 		switch (aircraftType) {

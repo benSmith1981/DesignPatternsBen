@@ -3,6 +3,11 @@ public abstract class AircraftBuilder {
 	protected AircraftBomber aircraftBomber;
 	protected AircraftMissileShooter aircraftMissileShooter;
 	
+	/**
+	 * Must pass in an Aircraft type defined in an enum to get a type of aircraft
+	 * @param aircraftType
+	 * @return
+	 */
 	public Aircraft getAircraft(AircraftType aircraftType)
 	{
 		switch (aircraftType) {
@@ -15,6 +20,10 @@ public abstract class AircraftBuilder {
 		}
 	}
 
+	/**
+	 * Pass in the type of aircraft you want to create defined in enum
+	 * @param aircraftType
+	 */
     public void createNewAircraft(AircraftType aircraftType) 
     { 
 		switch (aircraftType) {
