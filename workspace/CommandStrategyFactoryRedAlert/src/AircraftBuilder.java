@@ -10,13 +10,14 @@ public abstract class AircraftBuilder {
 	 */
 	public Aircraft getAircraft(AircraftType aircraftType)
 	{
-		switch (aircraftType) {
-		case Bomber:
-			return (Aircraft)aircraftBomber;
-		case MissileShooter:
-			return (Aircraft)aircraftMissileShooter;
-		default:
-			return null;
+		switch (aircraftType) 
+		{
+			case Bomber:
+				return (Aircraft)aircraftBomber;
+			case MissileShooter:
+				return (Aircraft)aircraftMissileShooter;
+			default:
+				return null;
 		}
 	}
 
@@ -26,15 +27,16 @@ public abstract class AircraftBuilder {
 	 */
     public void createNewAircraft(AircraftType aircraftType) 
     { 
-		switch (aircraftType) {
-		case Bomber:
-	    	aircraftBomber = new AircraftBomber(); 
-	    	break;
-		case MissileShooter:
-			aircraftMissileShooter = new AircraftMissileShooter();
-			break;
-		default:
-			break;
+		switch (aircraftType) 
+		{
+			case Bomber:
+				aircraftBomber = new AircraftBomber(); 
+				break;
+			case MissileShooter:
+				aircraftMissileShooter = new AircraftMissileShooter();
+				break;
+			default:
+				break;
 		}
 	}
     

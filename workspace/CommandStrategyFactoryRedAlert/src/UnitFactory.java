@@ -10,15 +10,16 @@ public class UnitFactory {
      */
     public void setAircraftBuilder(AircraftType aircraftType, AircraftBuilder aircraftBuilder) 
     {
-		switch (aircraftType) {
-		case Bomber:
-	    	this.aircraftBuilderBomber = (AircraftBuilderBomber)aircraftBuilder; 
-	    	break;
-		case MissileShooter:
-	    	this.aircraftBuilderMissileShooter = (AircraftBuilderMissile)aircraftBuilder; 
-	    	break;
-		default:
-			break;
+		switch (aircraftType) 
+		{
+			case Bomber:
+				this.aircraftBuilderBomber = (AircraftBuilderBomber)aircraftBuilder; 
+				break;
+			case MissileShooter:
+				this.aircraftBuilderMissileShooter = (AircraftBuilderMissile)aircraftBuilder; 
+				break;
+			default:
+				break;
 		}
     }
     
@@ -29,13 +30,14 @@ public class UnitFactory {
      */
     public Aircraft getAircraft(AircraftType aircraftType) 
     {
-		switch (aircraftType) {
-		case Bomber:
-	    	return (Aircraft)aircraftBuilderBomber.getAircraft(aircraftType); 
-		case MissileShooter:
-	    	return (Aircraft)aircraftBuilderMissileShooter.getAircraft(aircraftType); 
-		default:
-			return null;
+		switch (aircraftType) 
+		{
+			case Bomber:
+				return (Aircraft)aircraftBuilderBomber.getAircraft(aircraftType); 
+			case MissileShooter:
+				return (Aircraft)aircraftBuilderMissileShooter.getAircraft(aircraftType); 
+			default:
+				return null;
 		}
     }
  
@@ -44,21 +46,22 @@ public class UnitFactory {
      * @param aircraftType
      */
     public void constructAircraftBuilder(AircraftType aircraftType) {
-		switch (aircraftType) {
-		case Bomber:
-			aircraftBuilderBomber.createNewAircraft(aircraftType);
-			aircraftBuilderBomber.buildFuselage();
-			aircraftBuilderBomber.buildPropellor();
-			aircraftBuilderBomber.buildWings();
-			break;
-		case MissileShooter:
-			aircraftBuilderMissileShooter.createNewAircraft(aircraftType);
-			aircraftBuilderMissileShooter.buildFuselage();
-			aircraftBuilderMissileShooter.buildPropellor();
-			aircraftBuilderMissileShooter.buildWings();	
-			break;
-		default:
-			break;
+		switch (aircraftType) 
+		{
+			case Bomber:
+				aircraftBuilderBomber.createNewAircraft(aircraftType);
+				aircraftBuilderBomber.buildFuselage();
+				aircraftBuilderBomber.buildPropellor();
+				aircraftBuilderBomber.buildWings();
+				break;
+			case MissileShooter:
+				aircraftBuilderMissileShooter.createNewAircraft(aircraftType);
+				aircraftBuilderMissileShooter.buildFuselage();
+				aircraftBuilderMissileShooter.buildPropellor();
+				aircraftBuilderMissileShooter.buildWings();	
+				break;
+			default:
+				break;
 		} 
     }
 	
