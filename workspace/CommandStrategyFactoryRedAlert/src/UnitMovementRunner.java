@@ -13,28 +13,38 @@ public class UnitMovementRunner {
 		Tank t = UnitFactory.createTank();
 
 		//need an instance variable to set aircraft builder variable
-		UnitFactory aircraftBomberFactory = new UnitFactory();
-		//create our bomber builder
-		AircraftBuilderBomber aircraftBuilderBomber = new AircraftBuilderBomber();
-		//now tell factory to set the bomber builder to one we created so it can build it
-		aircraftBomberFactory.setAircraftBuilderBomber(aircraftBuilderBomber);
-		//now tell factory to do all it needs to to construct the bomber
-		aircraftBomberFactory.constructAircraftBuilderBomber();
-		//get our newly created bomber, so it can be used else where
-        AircraftBomber aircraftBomber = aircraftBomberFactory.getAircraftBomber();
+		UnitFactory aircraftFactory = new UnitFactory();
 		
-		AircraftMissileShooter aircraftMissile = UnitFactory.createAircraftMissileShooter();
-   
+		//create our aircraft bomber builder
+		AircraftBuilder aircraftBuilderBomber = new AircraftBuilderBomber();
+		//now tell factory to set the bomber builder 
+		aircraftFactory.setAircraftBuilder(AircraftType.Bomber,aircraftBuilderBomber);
+		
+		//create our aircraft bomber builder
+		AircraftBuilder aircraftBuilderMissile = new AircraftBuilderMissile();
+		//now tell factory to set the bomber builder 
+		aircraftFactory.setAircraftBuilder(AircraftType.MissileShooter,aircraftBuilderMissile);
+		
+		//now tell factory to do all it needs to to construct the bomber
+		aircraftFactory.constructAircraftBuilder(AircraftType.Bomber);
+		//get our newly created bomber, so it can be used else where
+        AircraftBomber aircraftBomber = (AircraftBomber)aircraftFactory.getAircraft(AircraftType.Bomber);
+        
+		//now tell factory to do all it needs to to construct the missile shooter
+		aircraftFactory.constructAircraftBuilder(AircraftType.MissileShooter);
+		//get our newly created missile shooter, so it can be used else where
+        AircraftMissileShooter aircraftMissileShooter = (AircraftMissileShooter)aircraftFactory.getAircraft(AircraftType.MissileShooter);
+		   
 		addUnitToMoveGroup(s);
 		addUnitToMoveGroup(t);
 		addUnitToMoveGroup(aircraftBomber);
-		addUnitToMoveGroup(aircraftMissile);
+		addUnitToMoveGroup(aircraftMissileShooter);
 		createMoveGroup();
 		
 		createAttackerFiresAtTarget(s,t);
 		createAttackerFiresAtTarget(t,s);
 		createAttackerFiresAtTarget(aircraftBomber,s);
-		createAttackerFiresAtTarget(aircraftMissile,t);
+		createAttackerFiresAtTarget(aircraftMissileShooter,t);
 	
 		createTakePictureOfTarget(aircraftBomber,s);
 		

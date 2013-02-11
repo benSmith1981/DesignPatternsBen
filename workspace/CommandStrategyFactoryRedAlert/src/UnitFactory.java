@@ -1,39 +1,65 @@
 public class UnitFactory {	
 
-    private AircraftBuilderBomber aircraftBomberBuilder;
+    private AircraftBuilderBomber aircraftBuilderBomber;
+    private AircraftBuilderMissile aircraftBuilderMissileShooter;
+
     
     /**
      * Sets the local instance of aircraftBomberBuilder
      * @param aircraftBomberBuilder
      */
-    public void setAircraftBuilderBomber(AircraftBuilderBomber aircraftBomberBuilder) 
-    { 
-    	this.aircraftBomberBuilder = aircraftBomberBuilder; 
+    public void setAircraftBuilder(AircraftType aircraftType, AircraftBuilder aircraftBuilder) 
+    {
+		switch (aircraftType) {
+		case Bomber:
+	    	this.aircraftBuilderBomber = (AircraftBuilderBomber)aircraftBuilder; 
+	    	break;
+		case MissileShooter:
+	    	this.aircraftBuilderMissileShooter = (AircraftBuilderMissile)aircraftBuilder; 
+	    	break;
+		default:
+			break;
+		}
     }
     
     /**
      * Getter for newly created bomber 
      * @return
      */
-    public AircraftBomber getAircraftBomber() 
-    { 
-    	return aircraftBomberBuilder.getAircraftBomber(); 
+    public Aircraft getAircraft(AircraftType aircraftType) 
+    {
+		switch (aircraftType) {
+		case Bomber:
+	    	return (Aircraft)aircraftBuilderBomber.getAircraft(aircraftType); 
+		case MissileShooter:
+	    	return (Aircraft)aircraftBuilderMissileShooter.getAircraft(aircraftType); 
+		default:
+			return null;
+		}
     }
  
     /**
      * Constructor for our bomber, telling bomber builder to create bomber and return
      * and build all necessary parts
      */
-    public void constructAircraftBuilderBomber() {
-    	aircraftBomberBuilder.createNewAircraftBomber();
-    	aircraftBomberBuilder.buildFuselage();
-    	aircraftBomberBuilder.buildPropellor();
-    	aircraftBomberBuilder.buildWings();
+    public void constructAircraftBuilder(AircraftType aircraftType) {
+		switch (aircraftType) {
+		case Bomber:
+			aircraftBuilderBomber.createNewAircraft(aircraftType);
+			aircraftBuilderBomber.buildFuselage();
+			aircraftBuilderBomber.buildPropellor();
+			aircraftBuilderBomber.buildWings();
+			break;
+		case MissileShooter:
+			aircraftBuilderMissileShooter.createNewAircraft(aircraftType);
+			aircraftBuilderMissileShooter.buildFuselage();
+			aircraftBuilderMissileShooter.buildPropellor();
+			aircraftBuilderMissileShooter.buildWings();	
+			break;
+		default:
+			break;
+		} 
     }
-	
-	public static AircraftMissileShooter createAircraftMissileShooter(){
-		return new AircraftMissileShooter();
-	}
 	
 	public static Tank createTank(){
 		return new Tank();

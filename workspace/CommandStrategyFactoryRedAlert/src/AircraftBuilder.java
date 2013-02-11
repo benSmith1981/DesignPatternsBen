@@ -1,16 +1,33 @@
 
 public abstract class AircraftBuilder {
 	protected AircraftBomber aircraftBomber;
-
-	public AircraftBomber getAircraftBomber()
+	protected AircraftMissileShooter aircraftMissileShooter;
+	
+	public Aircraft getAircraft(AircraftType aircraftType)
 	{
-		return aircraftBomber;
+		switch (aircraftType) {
+		case Bomber:
+			return (Aircraft)aircraftBomber;
+		case MissileShooter:
+			return (Aircraft)aircraftMissileShooter;
+		default:
+			return null;
+		}
 	}
 
-    public void createNewAircraftBomber() 
+    public void createNewAircraft(AircraftType aircraftType) 
     { 
-    	aircraftBomber = new AircraftBomber(); 
-    }
+		switch (aircraftType) {
+		case Bomber:
+	    	aircraftBomber = new AircraftBomber(); 
+	    	break;
+		case MissileShooter:
+			aircraftMissileShooter = new AircraftMissileShooter();
+			break;
+		default:
+			break;
+		}
+	}
     
     public abstract void buildWings();
     public abstract void buildPropellor();
