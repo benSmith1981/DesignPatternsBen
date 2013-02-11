@@ -1,0 +1,55 @@
+
+public abstract class AircraftBuilder {
+	protected AircraftBomber aircraftBomber;
+	protected AircraftMissileShooter aircraftMissileShooter;
+	protected Aircraft aircraft;
+	
+	public Aircraft getAircraft(String aircraftType)
+	{
+		if(aircraftType == "Bomber")
+			return (Aircraft)aircraftBomber;
+		else if(aircraftType == "MissileShooter")
+			return (Aircraft)aircraftMissileShooter;
+		else
+			return null;
+	}
+
+    public void createNewAircraft(String aircraftType) 
+    { 
+		if(aircraftType == "Bomber")
+		{
+	    	aircraftBomber = new AircraftBomber(); 
+		}
+		else if(aircraftType == "MissileShooter")
+		{
+			aircraftMissileShooter = new AircraftMissileShooter();
+			return (Aircraft)aircraftMissileShooter;    
+		}
+		else
+			return null;
+	}
+	
+//	public AircraftBomber getAircraftBomber()
+//	{
+//		return aircraftBomber;
+//	}
+//
+//    public void createNewAircraftBomber() 
+//    { 
+//    	aircraftBomber = new AircraftBomber(); 
+//    }
+//	
+//    public void createNewAircraftMissileShooter() 
+//    { 
+//    	aircraftMissileShooter = new AircraftMissileShooter(); 
+//    }
+//    
+//	public AircraftBomber getAircraftMissileShooter()
+//	{
+//		return aircraftBomber;
+//	}
+    
+    public abstract void buildWings();
+    public abstract void buildPropellor();
+    public abstract void buildFuselage();
+}

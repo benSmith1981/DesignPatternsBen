@@ -1,0 +1,19 @@
+public class AircraftBomber extends Aircraft{
+	
+	public AircraftBomber(){
+		super(new Fly(), new DropBomb(), new TakePicture());
+	}	
+	
+    public void createWings(String wingInstructions)
+    {
+
+    }
+    public void createPropellor(String propellorInstructions)
+    {
+
+    }
+    public void createFuselage(String fuselageInstructions)
+    {
+
+    }
+}

@@ -1,0 +1,36 @@
+public class UnitFactory {	
+
+    private AircraftBuilderBomber aircraftBomberBuilder;
+    
+    public void setAircraftBuilderBomber(AircraftBuilderBomber aircraftBomberBuilder) 
+    { 
+    	this.aircraftBomberBuilder = aircraftBomberBuilder; 
+    }
+    public AircraftBomber getPizza() 
+    { 
+    	return aircraftBomberBuilder.getAircraftBomber(); 
+    }
+ 
+    public void constructAircraftBuilderBomber() {
+    	aircraftBomberBuilder.createNewAircraftBomber();
+    	aircraftBomberBuilder.buildFuselage();
+    	aircraftBomberBuilder.buildPropellor();
+    	aircraftBomberBuilder.buildWings()();
+    }
+    
+	public static AircraftBomber createAircraftBomber(){
+		return new AircraftBomber();
+	}
+	
+	public static AircraftMissileShooter createAircraftMissileShooter(){
+		return new AircraftMissileShooter();
+	}
+	
+	public static Tank createTank(){
+		return new Tank();
+	}
+	
+	public static Soldier createSoldier(){
+		return new Soldier();
+	}
+}

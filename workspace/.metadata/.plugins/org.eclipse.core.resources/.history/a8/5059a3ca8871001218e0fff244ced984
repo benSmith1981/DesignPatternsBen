@@ -1,0 +1,18 @@
+public class AircraftMissileShooter extends Aircraft {
+	
+	public AircraftMissileShooter(){
+		super(new Fly(), new DropBomb(), new TakePicture());
+	}
+    public void setWings(String wingInstructions)
+    {
+
+    }
+    public void setPropellor(String propellorInstructions)
+    {
+
+    }
+    public void setFuselage(String fuselageInstructions)
+    {
+
+    }
+}

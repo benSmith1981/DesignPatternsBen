@@ -1,0 +1,18 @@
+
+public abstract class AircraftBuilder {
+	protected Aircraft aircraft;
+	
+	public AircraftBomber getAircraftBomber()
+	{
+		return aircraft;
+	}
+
+    public void createNewAircraftBomber() 
+    { 
+    	aircraft = new AircraftBomber(); 
+    }
+    
+    public abstract void buildWings();
+    public abstract void buildPropellor();
+    public abstract void buildFuselage();
+}

@@ -1,0 +1,16 @@
+
+public class AircraftBuilderBomber extends AircraftBuilder{
+
+    public void buildWings()
+    {
+    	
+    }
+    public void buildPropellor()
+    {
+    	
+    }
+    public void buildFuselage()
+    {
+    	
+    }
+}

@@ -1,0 +1,33 @@
+
+public abstract class AircraftBuilder {
+	protected AircraftBomber aircraftBomber;
+	protected AircraftMissileShooter aircraftMissileShooter;
+	
+	public Aircraft getAircraft(AircraftType aircraftType)
+	{
+		switch (aircraftType) {
+		case Bomber:
+			return (Aircraft)aircraftBomber;
+		case MissileShooter:
+			return (Aircraft)aircraftMissileShooter;
+		default:
+			return null;
+		}
+	}
+
+    public void createNewAircraft(String aircraftType) 
+    { 
+		if(aircraftType == "Bomber")
+		{
+	    	aircraftBomber = new AircraftBomber(); 
+		}
+		else if(aircraftType == "MissileShooter")
+		{
+			aircraftMissileShooter = new AircraftMissileShooter();
+		}
+	}
+    
+    public abstract void buildWings();
+    public abstract void buildPropellor();
+    public abstract void buildFuselage();
+}

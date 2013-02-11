@@ -1,0 +1,15 @@
+
+public class AircraftBuilderMissileShooter extends AircraftBuilder{
+    public void buildWings()
+    {
+    	aircraftBomber.createWings("Build Bomber Wings");
+    }
+    public void buildPropellor()
+    {
+    	aircraftBomber.createPropellor("Build Bomber Propellor");
+    }
+    public void buildFuselage()
+    {
+    	aircraftBomber.createFuselage("Build Bomber Fuselage");
+    }
+}

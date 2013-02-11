@@ -1,0 +1,10 @@
+
+public abstract class AircraftBuilder {
+	protected AircraftBomber aircraftBomber;
+	
+	public AircraftBomber getAircraftBomber()
+	{
+		return aircraftBomber;
+	}
+	
+}

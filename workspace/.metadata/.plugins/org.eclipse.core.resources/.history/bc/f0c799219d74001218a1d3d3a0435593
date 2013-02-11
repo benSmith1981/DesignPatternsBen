@@ -1,0 +1,73 @@
+public class UnitFactory {	
+
+    private AircraftBuilderBomber aircraftBuilderBomber;
+    private AircraftBuilderMissile aircraftBuilderMissileShooter;
+
+    
+    /**
+     * Sets the local instance of aircraftBomberBuilder
+     * @param aircraftBomberBuilder
+     */
+    public void setAircraftBuilder(String aircraftType, AircraftBuilder aircraftBuilder) 
+    {
+		if(aircraftType == "Bomber")
+		{
+	    	this.aircraftBuilderBomber = aircraftBuilder; 
+		}
+		else if(aircraftType == "MissileShooter")
+		{
+	    	this.aircraftBuilderMissileShooter = aircraftBuilder; 
+		}
+    }
+    
+    /**
+     * Getter for newly created bomber 
+     * @return
+     */
+    public Aircraft getAircraft(String aircraftType) 
+    { 
+		if(aircraftType == "Bomber")
+		{
+	    	return (Aircraft)aircraftBuilder.getAircraft("Bomber"); 
+		}
+		else if(aircraftType == "MissileShooter")
+		{
+	    	return (Aircraft)aircraftBuilder.getAircraft("MissileShooter"); 
+		}
+		else
+			return null;
+    }
+ 
+    /**
+     * Constructor for our bomber, telling bomber builder to create bomber and return
+     * and build all necessary parts
+     */
+    public void constructAircraftBuilder(String aircraftType) {
+		if(aircraftType == "Bomber")
+		{
+		   	aircraftBuilder.createNewAircraft("Bomber");
+	    	aircraftBuilder.buildFuselage();
+	    	aircraftBuilder.buildPropellor();
+	    	aircraftBuilder.buildWings();		}
+		else if(aircraftType == "MissileShooter")
+		{
+		   	aircraftBuilder.createNewAircraft("MissileShooter");
+	    	aircraftBuilder.buildFuselage();
+	    	aircraftBuilder.buildPropellor();
+	    	aircraftBuilder.buildWings();		
+	    }
+ 
+    }
+	
+	public static AircraftMissileShooter createAircraftMissileShooter(){
+		return new AircraftMissileShooter();
+	}
+	
+	public static Tank createTank(){
+		return new Tank();
+	}
+	
+	public static Soldier createSoldier(){
+		return new Soldier();
+	}
+}
