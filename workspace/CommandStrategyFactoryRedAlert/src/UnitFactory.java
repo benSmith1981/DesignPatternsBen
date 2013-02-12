@@ -1,22 +1,22 @@
 public class UnitFactory {	
 
-    private AircraftBuilderBomber aircraftBuilderBomber;
-    private AircraftBuilderMissile aircraftBuilderMissileShooter;
+    private static AircraftBuilderBomber aircraftBuilderBomber;
+    private static AircraftBuilderMissile aircraftBuilderMissileShooter;
 
     /**
      * Sets the local instance of aircraft builder for type of aircraft using it's specific builder
      * @param aircraftType
      * @param aircraftBuilder
      */
-    public void setAircraftBuilder(AircraftType aircraftType, AircraftBuilder aircraftBuilder) 
+    public static void setAircraftBuilder(AircraftType aircraftType, AircraftBuilderBomber aircraftBuilderBomber ,AircraftBuilderMissile aircraftBuilderMissile) 
     {
 		switch (aircraftType) 
 		{
 			case Bomber:
-				this.aircraftBuilderBomber = (AircraftBuilderBomber)aircraftBuilder; 
+				UnitFactory.aircraftBuilderBomber = aircraftBuilderBomber; 
 				break;
 			case MissileShooter:
-				this.aircraftBuilderMissileShooter = (AircraftBuilderMissile)aircraftBuilder; 
+				UnitFactory.aircraftBuilderMissileShooter = aircraftBuilderMissile; 
 				break;
 			default:
 				break;
@@ -28,7 +28,7 @@ public class UnitFactory {
      * @param aircraftType Request type of aircraft you want
      * @return An object of type Aircraft (either a missile shooter or a bomber)
      */
-    public Aircraft getAircraft(AircraftType aircraftType) 
+    public static Aircraft getAircraft(AircraftType aircraftType) 
     {
 		switch (aircraftType) 
 		{
@@ -45,7 +45,7 @@ public class UnitFactory {
      * Constructor for our aircraft, simply pass in the AircraftType you want and it is constructed
      * @param aircraftType
      */
-    public void constructAircraftBuilder(AircraftType aircraftType) {
+    public static void constructAircraftBuilder(AircraftType aircraftType) {
 		switch (aircraftType) 
 		{
 			case Bomber:
@@ -64,7 +64,15 @@ public class UnitFactory {
 				break;
 		} 
     }
-	
+   
+	public static AircraftBomber createAircraftBomber()
+	{
+		AircraftBuilderBomber bomberBuilder = new AircraftBuilderBomber();
+		setAircraftBuilder(AircraftType.Bomber, bomberBuilder, null);
+		constructAircraftBuilder(AircraftType.Bomber);
+		return getAircraft(AircraftType.Bomber);
+	}
+    
 	public static Tank createTank(){
 		return new Tank();
 	}

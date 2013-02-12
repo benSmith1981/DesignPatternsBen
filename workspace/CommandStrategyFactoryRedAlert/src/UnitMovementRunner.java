@@ -16,19 +16,9 @@ public class UnitMovementRunner {
 		UnitFactory aircraftFactory = new UnitFactory();
 		
 		//create our aircraft bomber builder
-		AircraftBuilder aircraftBuilderBomber = new AircraftBuilderBomber();
-		//now tell factory to set the bomber builder 
-		aircraftFactory.setAircraftBuilder(AircraftType.Bomber,aircraftBuilderBomber);
-		
-		//create our aircraft bomber builder
 		AircraftBuilder aircraftBuilderMissile = new AircraftBuilderMissile();
 		//now tell factory to set the bomber builder 
 		aircraftFactory.setAircraftBuilder(AircraftType.MissileShooter,aircraftBuilderMissile);
-		
-		//now tell factory to do all it needs to to construct the bomber
-		aircraftFactory.constructAircraftBuilder(AircraftType.Bomber);
-		//get our newly created bomber, so it can be used else where
-        Aircraft aircraftBomber = aircraftFactory.getAircraft(AircraftType.Bomber);
         
 		//now tell factory to do all it needs to to construct the missile shooter
 		aircraftFactory.constructAircraftBuilder(AircraftType.MissileShooter);
