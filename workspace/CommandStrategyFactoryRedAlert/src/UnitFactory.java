@@ -33,9 +33,9 @@ public class UnitFactory {
 		switch (aircraftType) 
 		{
 			case Bomber:
-				return (Aircraft)aircraftBuilderBomber.getAircraft(aircraftType); 
+				return aircraftBuilderBomber.getAircraft(aircraftType); 
 			case MissileShooter:
-				return (Aircraft)aircraftBuilderMissileShooter.getAircraft(aircraftType); 
+				return aircraftBuilderMissileShooter.getAircraft(aircraftType); 
 			default:
 				return null;
 		}

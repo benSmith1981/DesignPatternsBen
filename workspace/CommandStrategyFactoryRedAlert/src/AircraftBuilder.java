@@ -13,9 +13,9 @@ public abstract class AircraftBuilder {
 		switch (aircraftType) 
 		{
 			case Bomber:
-				return (Aircraft)aircraftBomber;
+				return aircraftBomber;
 			case MissileShooter:
-				return (Aircraft)aircraftMissileShooter;
+				return aircraftMissileShooter;
 			default:
 				return null;
 		}
