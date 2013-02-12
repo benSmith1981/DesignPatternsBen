@@ -28,12 +28,12 @@ public class UnitMovementRunner {
 		//now tell factory to do all it needs to to construct the bomber
 		aircraftFactory.constructAircraftBuilder(AircraftType.Bomber);
 		//get our newly created bomber, so it can be used else where
-        AircraftBomber aircraftBomber = (AircraftBomber)aircraftFactory.getAircraft(AircraftType.Bomber);
+        Aircraft aircraftBomber = aircraftFactory.getAircraft(AircraftType.Bomber);
         
 		//now tell factory to do all it needs to to construct the missile shooter
 		aircraftFactory.constructAircraftBuilder(AircraftType.MissileShooter);
 		//get our newly created missile shooter, so it can be used else where
-        AircraftMissileShooter aircraftMissileShooter = (AircraftMissileShooter)aircraftFactory.getAircraft(AircraftType.MissileShooter);
+        Aircraft aircraftMissileShooter = aircraftFactory.getAircraft(AircraftType.MissileShooter);
 		   
 		addUnitToMoveGroup(s);
 		addUnitToMoveGroup(t);
