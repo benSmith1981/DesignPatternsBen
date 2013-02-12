@@ -4,18 +4,8 @@ public class AircraftBomber extends Aircraft{
 		super(new Fly(), new DropBomb(), new TakePicture());
 	}	
 	
-    public void setWings(String wingInstructions)
-    {
-    	System.out.println(wingInstructions);
-    }
-    
-    public void setPropellor(String propellorInstructions)
-    {
-    	System.out.println(propellorInstructions);
-    }
-    
-    public void setFuselage(String fuselageInstructions)
-    {
-    	System.out.println(fuselageInstructions);
-    }
+	@Override
+	public String toString(){
+		return "Bomber: "+ this.getWings() + " - " + this.getFuselage() + " - " + this.getPropellor();
+	}
 }

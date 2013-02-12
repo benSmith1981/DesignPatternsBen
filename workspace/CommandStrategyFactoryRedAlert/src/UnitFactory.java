@@ -1,38 +1,15 @@
 public class UnitFactory {	
 
-    private AircraftBuilderBomber aircraftBomberBuilder;
-    
-    /**
-     * Sets the local instance of aircraftBomberBuilder
-     * @param aircraftBomberBuilder
-     */
-    public void setAircraftBuilderBomber(AircraftBuilderBomber aircraftBomberBuilder) 
-    { 
-    	this.aircraftBomberBuilder = aircraftBomberBuilder; 
-    }
-    
-    /**
-     * Getter for newly created bomber 
-     * @return
-     */
-    public AircraftBomber getAircraftBomber() 
-    { 
-    	return aircraftBomberBuilder.getAircraftBomber(); 
-    }
- 
-    /**
-     * Constructor for our bomber, telling bomber builder to create bomber and return
-     * and build all necessary parts
-     */
-    public void constructAircraftBuilderBomber() {
-    	aircraftBomberBuilder.createNewAircraftBomber();
-    	aircraftBomberBuilder.buildFuselage();
-    	aircraftBomberBuilder.buildPropellor();
-    	aircraftBomberBuilder.buildWings();
-    }
+	public static AircraftBomber getDefaultAircraftBomber() {
+		DefaultAircraftBomberBuilder builder = new DefaultAircraftBomberBuilder();
+		AircraftBomberDirector.construct(builder);
+		return builder.getAircraftBomber();
+	}
 	
-	public static AircraftMissileShooter createAircraftMissileShooter(){
-		return new AircraftMissileShooter();
+	public static AircraftBomber getSpecialAircraftBomber(){
+		SpecialAircraftBomberBuilder builder = new SpecialAircraftBomberBuilder();
+		AircraftBomberDirector.construct(builder);
+		return builder.getAircraftBomber();
 	}
 	
 	public static Tank createTank(){
