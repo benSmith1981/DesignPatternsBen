@@ -18,6 +18,12 @@ public class UnitMovementRunner {
 		AircraftBomber aircraftBomber2 = UnitFactory.getSpecialAircraftBomber();
 		System.out.println(aircraftBomber2);
 		
+		AircraftMissileShooter aircraftMissileShooter = UnitFactory.getDefautlAircraftMissileShooter();
+		System.out.println(aircraftMissileShooter);
+		
+		AircraftMissileShooter aircraftMissileShooter2 = UnitFactory.getSpecialAircraftMissileShooter();
+		System.out.println(aircraftMissileShooter2);
+		
 		addUnitToMoveGroup(s);
 		addUnitToMoveGroup(t);
 		addUnitToMoveGroup(aircraftBomber);

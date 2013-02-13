@@ -1,15 +1,27 @@
 public class UnitFactory {	
 
-	public static AircraftBomber getDefaultAircraftBomber() {
+	public static AircraftBomber getDefaultAircraftBomber(){
 		DefaultAircraftBomberBuilder builder = new DefaultAircraftBomberBuilder();
-		AircraftBomberDirector.construct(builder);
+		AircraftDirector.construct(builder);
 		return builder.getAircraftBomber();
 	}
 	
 	public static AircraftBomber getSpecialAircraftBomber(){
 		SpecialAircraftBomberBuilder builder = new SpecialAircraftBomberBuilder();
-		AircraftBomberDirector.construct(builder);
+		AircraftDirector.construct(builder);
 		return builder.getAircraftBomber();
+	}
+	
+	public static AircraftMissileShooter getDefautlAircraftMissileShooter(){
+		DefaultAircraftMissileShooterBuilder builder = new DefaultAircraftMissileShooterBuilder();
+		AircraftDirector.construct(builder);
+		return builder.getAircraftMissileShooter();
+	}
+	
+	public static AircraftMissileShooter getSpecialAircraftMissileShooter(){
+		SpecialAircraftMissileShooterBuilder builder = new SpecialAircraftMissileShooterBuilder();
+		AircraftDirector.construct(builder);
+		return builder.getAircraftMissileShooter();
 	}
 	
 	public static Tank createTank(){
