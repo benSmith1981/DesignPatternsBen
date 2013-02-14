@@ -1,7 +1,7 @@
 public class AircraftMissileShooter extends Aircraft {
 	
-	public AircraftMissileShooter(){
-		super(new Fly(), new DropBomb(), new TakePicture());
+	public AircraftMissileShooter(MoveStrategy moveStrategy, FireAtTargetStrategy fireStrategy, TakePictureOfTargetStrategy pictureStrategy) {
+		super(moveStrategy, fireStrategy, pictureStrategy);
 	}
 	
 	@Override

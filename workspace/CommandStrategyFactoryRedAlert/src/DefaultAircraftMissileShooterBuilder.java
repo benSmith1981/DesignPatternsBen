@@ -1,7 +1,13 @@
 
 public class DefaultAircraftMissileShooterBuilder extends AircraftMissileShooterBuilder {
 
-	private AircraftMissileShooter aircraftMissileShooter = new AircraftMissileShooter();
+	private AircraftMissileShooter aircraftMissileShooter;
+	
+	@Override
+	public void createAircraftMissileShooter(MoveStrategy moveStrategy, FireAtTargetStrategy fireStrategy, TakePictureOfTargetStrategy pictureStrategy) {
+		aircraftMissileShooter = new AircraftMissileShooter(moveStrategy, fireStrategy, pictureStrategy);		
+	}
+	
 	@Override
 	public void buildWings() {
 		aircraftMissileShooter.setWings("Default wings");
@@ -21,5 +27,6 @@ public class DefaultAircraftMissileShooterBuilder extends AircraftMissileShooter
 	public AircraftMissileShooter getAircraftMissileShooter() {
 		return aircraftMissileShooter;
 	}
+
 
 }

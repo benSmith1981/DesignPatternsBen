@@ -1,8 +1,8 @@
 public class AircraftBomber extends Aircraft{
-	
-	public AircraftBomber(){
-		super(new Fly(), new DropBomb(), new TakePicture());
-	}	
+		
+	public AircraftBomber(MoveStrategy moveStrategy, FireAtTargetStrategy fireStrategy, TakePictureOfTargetStrategy pictureStrategy) {
+		super(moveStrategy, fireStrategy, pictureStrategy);
+	}
 	
 	@Override
 	public String toString(){
