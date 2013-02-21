@@ -1,78 +1,40 @@
 public class UnitFactory {	
 
-    private static AircraftBuilderBomber aircraftBuilderBomber;
-    private static AircraftBuilderMissile aircraftBuilderMissileShooter;
-
-    /**
-     * Sets the local instance of aircraft builder for type of aircraft using it's specific builder
-     * @param aircraftType
-     * @param aircraftBuilder
-     */
-    public static void setAircraftBuilder(AircraftType aircraftType, AircraftBuilderBomber aircraftBuilderBomber ,AircraftBuilderMissile aircraftBuilderMissile) 
-    {
-		switch (aircraftType) 
-		{
-			case Bomber:
-				UnitFactory.aircraftBuilderBomber = aircraftBuilderBomber; 
-				break;
-			case MissileShooter:
-				UnitFactory.aircraftBuilderMissileShooter = aircraftBuilderMissile; 
-				break;
-			default:
-				break;
-		}
-    }
-    
-    /**
-     * Getter for newly created aircraft, must request aircraft type, must cast back to the specific type of aircraft you require
-     * @param aircraftType Request type of aircraft you want
-     * @return An object of type Aircraft (either a missile shooter or a bomber)
-     */
-    public static Aircraft getAircraft(AircraftType aircraftType) 
-    {
-		switch (aircraftType) 
-		{
-			case Bomber:
-				return aircraftBuilderBomber.getAircraft(aircraftType); 
-			case MissileShooter:
-				return aircraftBuilderMissileShooter.getAircraft(aircraftType); 
-			default:
-				return null;
-		}
-    }
- 
-    /**
-     * Constructor for our aircraft, simply pass in the AircraftType you want and it is constructed
-     * @param aircraftType
-     */
-    public static void constructAircraftBuilder(AircraftType aircraftType) {
-		switch (aircraftType) 
-		{
-			case Bomber:
-				aircraftBuilderBomber.createNewAircraft(aircraftType);
-				aircraftBuilderBomber.buildFuselage();
-				aircraftBuilderBomber.buildPropellor();
-				aircraftBuilderBomber.buildWings();
-				break;
-			case MissileShooter:
-				aircraftBuilderMissileShooter.createNewAircraft(aircraftType);
-				aircraftBuilderMissileShooter.buildFuselage();
-				aircraftBuilderMissileShooter.buildPropellor();
-				aircraftBuilderMissileShooter.buildWings();	
-				break;
-			default:
-				break;
-		} 
-    }
-   
-	public static AircraftBomber createAircraftBomber()
-	{
-		AircraftBuilderBomber bomberBuilder = new AircraftBuilderBomber();
-		setAircraftBuilder(AircraftType.Bomber, bomberBuilder, null);
-		constructAircraftBuilder(AircraftType.Bomber);
-		return getAircraft(AircraftType.Bomber);
+	/**
+	 * Create your bomber aircraft
+	 * @return An aircraft bomber type
+	 */
+	public static AircraftBomber createAircraftBomber() 
+	{  		
+		//set the builder type
+		AircraftBuilderBomber.setAircraftBuilder(AircraftType.Bomber);
+		//set our aircraft to be built, through the static builder bomber property
+		AircraftBuilderBomber.aircraftBuilderBomber.setAircraft(AircraftType.Bomber);
+		//now construct our aircraft with our builder
+		AircraftBuilderBomber.constructAircraftWithBuilder(AircraftType.Bomber);
+		//return type of aircraft that has been built,
+		//Note: I didn't use a getter method for this instance variable as I need to return an exact type and I don't want to downcast, 
+		//and when I do try to access the variable through a getter I get an error...
+		return AircraftBuilderBomber.aircraftBuilderBomber.aircraftBomber; 	
 	}
-    
+	
+	/**
+	 * Create your missile shooter aircraft
+	 * @return An aircraft missile type
+	 */
+	public static AircraftMissileShooter createAircraftMissileShooter() 
+	{  
+		//set the builder type
+		AircraftBuilderMissileShooter.setAircraftBuilder(AircraftType.MissileShooter);
+		//set our aircraft to be built, through the static builder bomber property
+		AircraftBuilderMissileShooter.aircraftBuilderMissileShooter.setAircraft(AircraftType.MissileShooter);
+		//now construct our aircraft with our builder
+		AircraftBuilderMissileShooter.constructAircraftWithBuilder(AircraftType.MissileShooter);
+		//return type of aircraft that has been built,
+		//Note: I didn't use a getter method for this instance variable as I need to return an exact type and I don't want to downcast
+		return AircraftBuilderMissileShooter.aircraftBuilderMissileShooter.aircraftMissileShooter; 
+	}
+	
 	public static Tank createTank(){
 		return new Tank();
 	}

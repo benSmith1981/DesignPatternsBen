@@ -12,18 +12,8 @@ public class UnitMovementRunner {
 		Soldier s = UnitFactory.createSoldier();
 		Tank t = UnitFactory.createTank();
 
-		//need an instance variable to set aircraft builder variable
-		UnitFactory aircraftFactory = new UnitFactory();
-		
-		//create our aircraft bomber builder
-		AircraftBuilder aircraftBuilderMissile = new AircraftBuilderMissile();
-		//now tell factory to set the bomber builder 
-		aircraftFactory.setAircraftBuilder(AircraftType.MissileShooter,aircraftBuilderMissile);
-        
-		//now tell factory to do all it needs to to construct the missile shooter
-		aircraftFactory.constructAircraftBuilder(AircraftType.MissileShooter);
-		//get our newly created missile shooter, so it can be used else where
-        Aircraft aircraftMissileShooter = aircraftFactory.getAircraft(AircraftType.MissileShooter);
+		AircraftBomber aircraftBomber = UnitFactory.createAircraftBomber();
+		AircraftMissileShooter aircraftMissileShooter = UnitFactory.createAircraftMissileShooter();
 		   
 		addUnitToMoveGroup(s);
 		addUnitToMoveGroup(t);
