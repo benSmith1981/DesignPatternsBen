@@ -41,19 +41,11 @@ public class AircraftBuilderDirector {
 		}
 	}
 	
-	/**
-	 * Specifically return to our factory a bomber
-	 * @return
-	 */
 	public AircraftBomber getAircraftBomber()
 	{
 		return aircraftBuilder.getAircraftBomber();
 	}
 	
-	/**
-	 * Specifically return to our factory a missile shooter
-	 * @return
-	 */
 	public AircraftMissileShooter getAircraftMissileShooter()
 	{
 		return aircraftBuilder.getAircraftMissileShooter();
