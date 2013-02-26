@@ -1,0 +1,8 @@
+
+public class AircraftBuilderMissileShooter extends AircraftBuilder{
+	
+	public AircraftBuilderMissileShooter()
+	{
+		aircraftMissileShooter = new AircraftMissileShooter();
+	}
+}

@@ -5,8 +5,6 @@
  *
  */
 public class AircraftBuilderBomber extends AircraftBuilder{
-
-	private AircraftBomber aircraftBomber;
 	
 	public AircraftBuilderBomber()
 	{
@@ -30,16 +28,4 @@ public class AircraftBuilderBomber extends AircraftBuilder{
 	{
 		aircraftBomber.setWeapon("Build bombs");
 	}
-	
-	@Override
-	public void buildCamera()
-	{
-		aircraftBomber.setCamera("Build camera");
-	}
-	
-	public AircraftBomber getAircraftProduct()
-	{
-		return aircraftBomber;
-	}
-
 }

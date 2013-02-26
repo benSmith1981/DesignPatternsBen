@@ -1,0 +1,23 @@
+
+public abstract class AircraftBuilder {
+	protected AircraftBomber aircraftBomber;
+	protected AircraftMissileShooter aircraftMissileShooter;
+
+	public abstract void buildWings();
+	public abstract void buildFuselage();
+	public abstract void buildWeapon();
+	
+	public void buildCamera()
+	{
+		aircraftMissileShooter.setCamera("");
+	}
+	
+	public AircraftBomber getAircraftBomber()
+	{
+		return aircraftBomber;
+	}
+	public AircraftMissileShooter getAircraftMissileShooter()
+	{
+		return aircraftMissileShooter;
+	}
+}

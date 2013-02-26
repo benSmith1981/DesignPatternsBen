@@ -37,8 +37,13 @@ public class AircraftBuilderDirector {
 		}
 	}
 	
-	public Aircraft getAircraft()
+	public AircraftBomber getAircraftBomber()
 	{
-		return aircraftBuilder.getAircraftProduct();
+		return aircraftBuilder.getAircraftBomber();
+	}
+	
+	public AircraftMissileShooter getAircraftMissileShooter()
+	{
+		return aircraftBuilder.getAircraftMissileShooter();
 	}
 }

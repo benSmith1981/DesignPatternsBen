@@ -13,7 +13,7 @@ public class UnitFactory {
 		//Tell director to go build this type of aircraft product
 		aircraftDirector.constructAircraft(AircraftType.Bomber);
 		//return Bomber aircraft
-		return  (AircraftBomber) aircraftDirector.getAircraft();
+		return  aircraftDirector.getAircraftBomber();
 	}
 	
 	/**
@@ -25,7 +25,7 @@ public class UnitFactory {
 		AircraftBuilderMissileShooter aircraftBuilderMissile = new AircraftBuilderMissileShooter();
 		AircraftBuilderDirector aircraftDirector = new AircraftBuilderDirector(aircraftBuilderMissile);
 		aircraftDirector.constructAircraft(AircraftType.MissileShooter);
-		return (AircraftMissileShooter)aircraftDirector.getAircraft();
+		return aircraftDirector.getAircraftMissileShooter();
 	}
 	
 	public static Tank createTank(){
