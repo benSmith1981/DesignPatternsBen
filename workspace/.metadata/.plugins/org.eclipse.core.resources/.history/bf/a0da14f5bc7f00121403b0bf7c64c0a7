@@ -1,7 +1,6 @@
 /**
- * The director takes the Aircraft builder type e.g. AircraftBuilderBomber that is extended from AircraftBuilder in its 
- * constructor, allowing us to direct it to build any type of Aircraft, which it then returns in getAircraftProduct() 
- * to the caller
+ * The director takes the Aircraft builder type that is extended from Aircraft in its constructor, allowing us to direct
+ * it to build any type of Aircraft, which it then returns in getAircraftProduct() to the caller
  * @author ben
  *
  */
@@ -13,10 +12,6 @@ public class AircraftBuilderDirector {
 		this.aircraftBuilder = aircraftBuilder;
 	}
 	
-	/**
-	 * Construct aircraft, seeing as different aircraft have different requirements only call build methods that are necessary
-	 * @param aircraftType The type of aircraft we want the director to build
-	 */
 	public void constructAircraft(AircraftType aircraftType)
 	{
 		switch (aircraftType) {
