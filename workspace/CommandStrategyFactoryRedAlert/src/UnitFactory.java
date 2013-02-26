@@ -6,16 +6,14 @@ public class UnitFactory {
 	 */
 	public static AircraftBomber createAircraftBomber() 
 	{  		
-		//set the builder type
-		AircraftBuilderBomber.setAircraftBuilder(AircraftType.Bomber);
-		//set our aircraft to be built, through the static builder bomber property
-		AircraftBuilderBomber.aircraftBuilderBomber.setAircraft(AircraftType.Bomber);
-		//now construct our aircraft with our builder
-		AircraftBuilderBomber.constructAircraftWithBuilder(AircraftType.Bomber);
-		//return type of aircraft that has been built,
-		//Note: I didn't use a getter method for this instance variable as I need to return an exact type and I don't want to downcast, 
-		//and when I do try to access the variable through a getter I get an error...
-		return AircraftBuilderBomber.aircraftBuilderBomber.aircraftBomber; 	
+		//create type of concrete aircraft builder we want
+		AircraftBuilderBomber aircraftBuilder = new AircraftBuilderBomber();
+		//Create director with this concrete aircraft product
+		AircraftDirector aircraftDirector = new AircraftDirector(aircraftBuilder);
+		//Tell director to go build this type of aircraft product
+		aircraftDirector.constructAircraft();
+		//return Bomber aircraft
+		return  (AircraftBomber) aircraftDirector.getAircraft();
 	}
 	
 	/**
@@ -24,15 +22,10 @@ public class UnitFactory {
 	 */
 	public static AircraftMissileShooter createAircraftMissileShooter() 
 	{  
-		//set the builder type
-		AircraftBuilderMissileShooter.setAircraftBuilder(AircraftType.MissileShooter);
-		//set our aircraft to be built, through the static builder bomber property
-		AircraftBuilderMissileShooter.aircraftBuilderMissileShooter.setAircraft(AircraftType.MissileShooter);
-		//now construct our aircraft with our builder
-		AircraftBuilderMissileShooter.constructAircraftWithBuilder(AircraftType.MissileShooter);
-		//return type of aircraft that has been built,
-		//Note: I didn't use a getter method for this instance variable as I need to return an exact type and I don't want to downcast
-		return AircraftBuilderMissileShooter.aircraftBuilderMissileShooter.aircraftMissileShooter; 
+		AircraftBuilderMissileShooter aircraftBuilderMissile = new AircraftBuilderMissileShooter();
+		AircraftDirector aircraftDirector = new AircraftDirector(aircraftBuilderMissile);
+		aircraftDirector.constructAircraft();
+		return (AircraftMissileShooter)aircraftDirector.getAircraft();
 	}
 	
 	public static Tank createTank(){

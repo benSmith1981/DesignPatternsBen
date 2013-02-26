@@ -1,8 +1,14 @@
-public class AircraftBomber extends Aircraft{
-	
-	public AircraftBomber(){
-		super(new Fly(), new DropBomb(), new TakePicture());
-	}	
+/**
+ * This is our product, which represents what an aircraft is composed of, and is what gets
+ * built in our builder pattern
+ * @author ben
+ *
+ */
+public class AircraftProduct {
+	private String wings;
+	private String fuselage;
+	private String weapon;
+	private String camera;
 	
 	public String getWings()
 	{
@@ -11,7 +17,6 @@ public class AircraftBomber extends Aircraft{
 	
 	public void setWings(String wings)
 	{
-		System.out.println(wings);
 		this.wings = wings;
 	}
 	
@@ -22,7 +27,6 @@ public class AircraftBomber extends Aircraft{
 	
 	public void setFuselage(String fuselage)
 	{
-		System.out.println(fuselage);
 		this.fuselage = fuselage;
 	}
 	
@@ -33,7 +37,6 @@ public class AircraftBomber extends Aircraft{
 	
 	public void setWeapon(String weapon)
 	{
-		System.out.println(weapon);
 		this.weapon = weapon;
 	}
 	
@@ -44,7 +47,6 @@ public class AircraftBomber extends Aircraft{
 	
 	public void setCamera(String camera)
 	{
-		System.out.println(camera);
 		this.camera = camera;
 	}
 }
