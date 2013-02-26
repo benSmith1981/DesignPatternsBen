@@ -6,7 +6,7 @@ public abstract class Aircraft extends Unit{
 	protected String camera;
 
 	public Aircraft(MoveStrategy mv, FireAtTargetStrategy f, TakePictureOfTargetStrategy tp){
-		super(new Fly(), new DropBomb());
+		super(new Fly(),f);
 		takePicture = tp;
 	}
 	

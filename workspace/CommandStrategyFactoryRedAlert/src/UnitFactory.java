@@ -9,9 +9,9 @@ public class UnitFactory {
 		//create type of concrete aircraft builder we want
 		AircraftBuilderBomber aircraftBuilder = new AircraftBuilderBomber();
 		//Create director with this concrete aircraft product
-		AircraftDirector aircraftDirector = new AircraftDirector(aircraftBuilder);
+		AircraftBuilderDirector aircraftDirector = new AircraftBuilderDirector(aircraftBuilder);
 		//Tell director to go build this type of aircraft product
-		aircraftDirector.constructAircraft();
+		aircraftDirector.constructAircraft(AircraftType.Bomber);
 		//return Bomber aircraft
 		return  (AircraftBomber) aircraftDirector.getAircraft();
 	}
@@ -23,8 +23,8 @@ public class UnitFactory {
 	public static AircraftMissileShooter createAircraftMissileShooter() 
 	{  
 		AircraftBuilderMissileShooter aircraftBuilderMissile = new AircraftBuilderMissileShooter();
-		AircraftDirector aircraftDirector = new AircraftDirector(aircraftBuilderMissile);
-		aircraftDirector.constructAircraft();
+		AircraftBuilderDirector aircraftDirector = new AircraftBuilderDirector(aircraftBuilderMissile);
+		aircraftDirector.constructAircraft(AircraftType.MissileShooter);
 		return (AircraftMissileShooter)aircraftDirector.getAircraft();
 	}
 	

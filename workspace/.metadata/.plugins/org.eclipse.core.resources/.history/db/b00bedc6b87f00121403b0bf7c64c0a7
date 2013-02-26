@@ -1,0 +1,15 @@
+public class AircraftTakePictureCommand implements UnitCommand{
+	private AircraftMissileShooter pictureTaker;
+	private Unit target;
+
+	public AircraftTakePictureCommand(AircraftMissileShooter pictureTaker, Unit target)
+	{
+		this.target = target;
+		this.pictureTaker = pictureTaker;
+	}
+	
+	@Override
+	public void executeCommand(){
+		pictureTaker.takePictureOfTarget(pictureTaker, target);			
+	}
+}

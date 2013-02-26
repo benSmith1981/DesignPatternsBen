@@ -29,7 +29,7 @@ public class AircraftBuilderMissileShooter extends AircraftBuilder{
 	@Override
 	public void buildCamera()
 	{
-		aircraftMissileShooter.setCamera("Build missile camera");
+		aircraftMissileShooter.setCamera("");
 	}
 	
 	public AircraftMissileShooter getAircraftProduct()

@@ -47,7 +47,7 @@ public class UnitMovementRunner {
 	 * @param pictureTaker
 	 * @param target
 	 */
-	public static void createTakePictureOfTarget(Aircraft pictureTaker, Unit target)
+	public static void createTakePictureOfTarget(AircraftBomber pictureTaker, Unit target)
 	{
 		AircraftTakePictureCommand takePictureCommand = new AircraftTakePictureCommand(pictureTaker,target);
 		addCommandToArrayList(takePictureCommand);

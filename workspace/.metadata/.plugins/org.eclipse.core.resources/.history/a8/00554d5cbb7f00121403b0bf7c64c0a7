@@ -1,0 +1,19 @@
+public abstract class Aircraft extends Unit{
+	private TakePictureOfTargetStrategy takePicture;
+	private FireAtTargetStrategy fireWeapon;
+	protected String wings;
+	protected String fuselage;
+	protected String weapon;
+	protected String camera;
+
+	public Aircraft(MoveStrategy mv, FireAtTargetStrategy f, TakePictureOfTargetStrategy tp){
+		
+		fireWeapon = f;
+		takePicture = tp;
+		super(new Fly(),fireWeapon);
+	}
+	
+	public void takePictureOfTarget(Unit pictureTaker, Unit target){
+		takePicture.takePictureOfTarget(pictureTaker,target);
+	}
+}
