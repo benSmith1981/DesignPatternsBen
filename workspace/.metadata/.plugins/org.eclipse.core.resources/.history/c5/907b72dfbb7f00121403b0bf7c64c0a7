@@ -1,9 +1,3 @@
-/**
- * The director takes the Aircraft builder type that is extended from Aircraft in its constructor, allowing us to direct
- * it to build any type of Aircraft, which it then returns in getAircraftProduct() to the caller
- * @author ben
- *
- */
 public class AircraftBuilderDirector {
 	private AircraftBuilder aircraftBuilder;
 	

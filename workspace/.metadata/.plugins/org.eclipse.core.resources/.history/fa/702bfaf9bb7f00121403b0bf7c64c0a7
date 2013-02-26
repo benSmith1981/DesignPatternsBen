@@ -1,9 +1,3 @@
-/**
- * This is our abstract product, which represents what an aircraft is composed of, and is what gets
- * built in our builder pattern, it is extended by the concrete products
- * @author ben
- *
- */
 public abstract class Aircraft extends Unit{
 	private TakePictureOfTargetStrategy takePicture;
 	protected String wings;

@@ -1,5 +1,5 @@
 /**
- * This is the concrete aircraft builder that builds the AircraftBuilderBomber by extending the AircraftBuilder
+ * This is the concrete aircraft builder builds the AircraftBuilderBomber by extending the AircraftBuilder
  * abstract class set of methods that set out how and AircraftProduct can be built
  * @author ben
  *

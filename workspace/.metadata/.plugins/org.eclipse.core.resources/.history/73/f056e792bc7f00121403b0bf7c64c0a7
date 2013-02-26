@@ -1,13 +1,8 @@
-/**
- * This is concrete AircraftBomber Product that extends Aircraft and implements the Abstract Aircraft methods
- * @author ben
- *
- */
-public class AircraftBomber extends Aircraft{
+public class AircraftMissileShooter extends Aircraft {
 	
-	public AircraftBomber(){
-		super(new Fly(), new DropBomb(), new TakePicture());
-	}	
+	public AircraftMissileShooter(){
+		super(new Fly(), new FireMissile(), new TakePicture());
+	}
 	
 	public String getWings()
 	{

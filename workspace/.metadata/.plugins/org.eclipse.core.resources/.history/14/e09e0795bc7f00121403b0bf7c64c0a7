@@ -1,5 +1,5 @@
 /**
- * This is our abstract product, which represents what an aircraft is composed of, and is what gets
+ * This is our product, which represents what an aircraft is composed of, and is what gets
  * built in our builder pattern, it is extended by the concrete products
  * @author ben
  *
